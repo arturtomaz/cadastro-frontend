@@ -21,6 +21,12 @@ function Home() {
     });
 
     getUsers();
+
+    inputName.current.value = "";
+    inputAge.current.value = "";
+    inputEmail.current.value = "";
+    
+    alert('Usuário cadastrado com sucesso!')
   }
   async function deleteUsers(id) {
     await api.delete(`/users/${id}`);
@@ -49,7 +55,7 @@ function Home() {
               Nome: <span>{user.name}</span>{" "}
             </p>
             <p>
-              Idade: <span>{user.age}</span>
+              Idade: <span>{user.age} anos</span>
             </p>
             <p>
               Email: <span>{user.email}</span>
