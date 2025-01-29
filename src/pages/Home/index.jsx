@@ -5,28 +5,35 @@ import { useEffect, useRef, useState } from "react";
 function Home() {
   const [users, setUsers] = useState([]);
 
-  const inputName = useRef()
-  const inputAge = useRef()
-  const inputEmail = useRef()  
+  const inputName = useRef();
+  const inputAge = useRef();
+  const inputEmail = useRef();
 
   async function getUsers() {
     const usersFromApi = await api.get("/users");
     setUsers(usersFromApi.data);
   }
   async function createUsers() {
-    await api.post('/users', {
-      name: inputName.current.value,
-      age: inputAge.current.value,
-      email: inputEmail.current.value
-    });
+    const usersFromApi = await api.get("/users");
+    if (usersFromApi.data.length > 9) {
+      alert(
+        "O sistema suporta no máximo 10 usuários. Tente excluir algum para adicionar um novo."
+      );
+    } else {
+      await api.post("/users", {
+        name: inputName.current.value,
+        age: inputAge.current.value,
+        email: inputEmail.current.value,
+      });
 
-    getUsers();
+      getUsers();
 
-    inputName.current.value = "";
-    inputAge.current.value = "";
-    inputEmail.current.value = "";
-    
-    alert('Usuário cadastrado com sucesso!')
+      inputName.current.value = "";
+      inputAge.current.value = "";
+      inputEmail.current.value = "";
+
+      alert("Usuário cadastrado com sucesso!");
+    }
   }
   async function deleteUsers(id) {
     await api.delete(`/users/${id}`);
@@ -45,7 +52,9 @@ function Home() {
         <input type="text" name="nome" placeholder="Nome" ref={inputName} />
         <input type="number" name="idade" placeholder="Idade" ref={inputAge} />
         <input type="email" name="email" placeholder="Email" ref={inputEmail} />
-        <button onClick={createUsers} type="button">Cadatrar-se</button>
+        <button onClick={createUsers} type="button">
+          Cadatrar-se
+        </button>
       </form>
 
       {users.map((user) => (
