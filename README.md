@@ -1,8 +1,30 @@
-# React + Vite
+# Cadastro de Usuários
+Projeto feito para praticar a integração entre front-end e back-end. Sendo criada uma API para exibir o conteúdo presente no banco de dados ao usuário final, bem como a manipulação dos dados presentes.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre o Projeto
+Este é um sistema de cadastro de usuários composto por um **frontend** e um **backend**, permitindo gerenciar registros de maneira eficiente.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Frontend
+- React
+- Tailwind CSS
+- Axios
+
+### Backend
+- Node.js
+- Express
+- MongoDB
+
+## Repositórios
+- **Frontend**: [cadastro-frontend](https://github.com/arturtomaz/cadastro-frontend)
+- **Backend**: [cadastro-backend](https://github.com/arturtomaz/cadastro-backend)
+
+## Funcionalidades
+- Cadastro de usuários
+- Remoção de usuários
+- Interface responsiva
+
+## Contribuição
+Sinta-se à vontade para abrir **issues** e enviar **pull requests** para melhorias.
+
